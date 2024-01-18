@@ -1,0 +1,336 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* Settings */
+
+:root {
+  --clr-bg: #dee5ea;
+  --clr-cards-and-header: #ffffff;
+  --clr-sidebar: #1d94d3;
+  --clr-pg: #727170;
+  --clr-headers: #0d0d0d;
+  --clr-icons: #0e0e0e;
+
+  --content-pd: 2rem;
+  --content-spacing: 1rem; 
+}
+
+body {
+
+  --sidebar-spacing: 3.5rem;
+  --sidebar-item-spacing: 1rem;
+  --sidebar-items-spacing: 1.2rem;
+
+  --card-spacing: 2.131rem;
+  --card-border-radius: .6rem;
+  
+  font-family: "Roboto", sans-serif;
+  background-color: var(--clr-bg);
+}
+
+ul,
+li{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 27px;
+  height: 27px;
+}
+
+.header img,
+.article img,
+.navbar img,
+.right-navbar img:is(:focus,:hover) {
+  cursor: pointer;
+}
+
+.flex-div {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem; 
+}
+
+p {
+  color: var(--clr-pg);
+}
+
+.large-section-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: black;
+}
+
+.medium-section-header {
+  font-size: 1rem;
+  font-weight: bold;
+  color: black;
+}
+
+.small-section-header {
+  font-size: .8788rem;
+  font-weight: bold;
+  color: black;
+}
+
+.admin-dash-board {
+  display: grid;
+  grid: auto 100px 1fr/ repeat(5,1fr);
+  grid-auto-rows: 1fr;
+  
+}
+
+.header {
+  background-color: var(--clr-cards-and-header);
+  grid-column: 2/6;
+  grid-row: 1/2;
+  padding: 1.5rem 2.5rem 1rem 2.5rem;
+}
+
+.header input {
+  width: 550px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid var(--clr-cards-and-header);
+  background-color: var(--clr-bg);
+}
+
+.header input:is(:hover,:focus){
+  border: 1px solid black;
+}
+
+.sidebar {
+  background-color: var(--clr-sidebar);
+  color: var(--clr-cards-and-header);
+  grid-column: 1/2;
+  grid-row: 1/4;
+
+  justify-content: start;
+  gap: var(--sidebar-spacing);
+  padding: 1.5rem 5rem 0 1.5rem;
+}
+
+.sidebar p {
+  color: var(--clr-cards-and-header);
+}
+
+.sidebar:hover {
+  cursor: pointer;
+}
+
+.sidebar p:hover {
+  opacity: .7;
+}
+
+.dash-board p:hover {
+  opacity: 1;
+}
+
+.sidebar p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.dash-board :nth-child(2) {
+  align-self: center;
+}
+
+.sidebar img {
+  width: 25px;
+  height: 25px;
+  filter: brightness(0) invert(1);
+}
+
+.dash-board img {
+  width: 45px;
+  height: 45px;
+}
+
+.dash-board {
+  margin-left: -10px;
+}
+
+.column-wrapper{
+  flex-flow: column wrap;
+}
+
+.sidebar-item-container {
+  justify-content: flex-start;
+  gap: var(--sidebar-item-spacing);
+}
+
+.sidebar-items-container {
+  gap: var(--sidebar-items-spacing);
+}
+
+.dash-board {
+  gap: 7px;
+}
+
+.navbar {
+  background-color: var(--clr-cards-and-header);
+  grid-column: 2/6;
+  grid-row: 2/3;
+  padding: 0 2.5rem 1.5rem 2.5rem;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 6px -3px gray;
+}
+
+.navbar img {
+  min-width: 60px;
+  min-height: 60px;
+}
+
+.navbar button {
+  width: 80px;
+  height: 30px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: var(--clr-sidebar);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.navbar :nth-child(2) {
+  align-self: flex-end;
+}
+
+.navbar button:is(:focus, :hover) {
+  cursor: pointer;
+  opacity: .9;
+  color: black;
+}
+
+.article {
+  background-color: var(--clr-bg);
+  grid-column: 2/5;
+  padding: 1.2rem 1.5rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--card-spacing);
+  padding-top: 14px;
+}
+
+.article-card {
+  background-color: var(--clr-cards-and-header);
+  padding: 2.2rem 1.8rem 1.6rem;
+  border-radius: var(--card-border-radius);
+  border-left: 10px solid #e7b83b;
+  box-shadow: 0 4px 6px -3px gray;
+
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1.2rem;
+  justify-content: space-between;
+}
+
+.article-b{
+  justify-content: flex-end;
+}
+
+.right-navbar {
+  background-color: var(--clr-bg);
+  grid-column: 5/6;
+  padding: 1.2rem 1.5rem 0 0;
+
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+}
+
+[data-font-size='small'] p {
+  font-size: .875rem;
+}
+
+.right-navbar .medium-section-header {
+  font-size: 1rem;
+}
+
+.right-navbar div {
+  background-color: var(--clr-cards-and-header);
+}
+
+.right-navbar .medium-section-header {
+  background-color: var(--clr-bg);
+  padding-bottom: .9rem;
+}
+
+.right-navbar ul {
+  padding: 1.5rem 1.5rem;
+  border-radius: var(--card-border-radius);
+}
+
+.right-navbar :nth-child(1) li {
+  padding: .5rem;
+}
+
+.second-right-navbar li {
+  display: flex;
+  gap: 1rem;
+}
+
+.right-navbar :nth-child(2) li div {
+  flex-flow: column wrap;
+  gap: 0;
+}
+
+.right-navbar :nth-child(2) ul {
+  display: flex;
+  gap: 1rem;
+  flex-flow: column wrap;
+}
+
+.card ul {
+  box-shadow: 0 4px 3px -2px gray;
+  border-radius: var(--card-border-radius);
+}
